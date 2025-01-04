@@ -1,0 +1,116 @@
+.container {
+    position: relative;
+    display: flex;
+    /* flex-direction: column; */
+    overflow: hidden;
+    height: 450px;
+
+    .slide {
+        position: absolute;
+
+        height: 450px;
+        inset: 0;
+        flex-direction: column;
+        /* check here */
+        display: flex;
+        display: none;
+
+
+        align-items: center;
+        justify-content: center;
+
+
+        background-size: cover;
+
+        color: white;
+
+        transition: all .2s ease-in-out;
+    }
+
+    .slide.curr {
+        display: flex;
+
+    }
+
+    .slide.prev {
+        display: flex;
+        transform: translate(-100%);
+    }
+
+    .slide.next {
+        display: flex;
+        transform: translate(100%);
+
+    }
+
+    .buttons {
+        position: absolute;
+        left: 50%;
+        bottom: 20px;
+        transform: translateX(-50%);
+        z-index: 999;
+
+        background-color: var(--brown-transparent);
+        padding: .15rem .5rem;
+        border-radius: 15px;
+
+
+        gap: .5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        button {
+            background-color: var(--brown-dark);
+            outline: 1px solid;
+            height: 17px;
+            aspect-ratio: 1;
+            border-radius: 50%;
+
+            transition: all .14s ease-in;
+        }
+
+        button.prev,
+        button.next {
+            height: 19px;
+        }
+
+        button.curr {
+            height: 30px;
+            border: 2px solid black;
+            outline: 1px solid white;
+            background-color: var(--brown-lightest);
+
+
+
+        }
+
+        button.prev {
+            background-color: var(--border-color);
+        }
+
+        button.next {
+            background-color: var(--brown-lighter);
+
+        }
+    }
+
+    .back,
+    .forward {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 50px;
+        z-index: 99999;
+        cursor: pointer;
+    }
+
+    .back {
+        left: 10px;
+    }
+
+    .forward {
+        right: 10px;
+        transform: rotate(180deg) translateY(50%);
+    }
+}
