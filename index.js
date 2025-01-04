@@ -12,6 +12,8 @@ function createSlider() {
     btnCotnainer.className = "buttons"
     let buttons = []
     let elements = []
+    let indexRef = { value: 0 }
+
     for (let i = 0; i < slides.length; i++) {
         const slide = slides[i];
 
@@ -47,116 +49,80 @@ function createSlider() {
         c.append(back, forward)
 
 
-        let currentIndex = i
+        indexRef.value = i
 
         back.addEventListener("click", () => {
-            if (currentIndex <= 0) currentIndex = elements.length
-            currentIndex--
+            indexRef.value--
+            if (indexRef.value < 0) indexRef.value = elements.length - 1
 
-            const { prev, curr, next } = slider(buttons, currentIndex)
-            const { prev: p, curr: c, next: n } = slider(elements, currentIndex)
-
-            for (let j = 0; j < elements.length; j++) {
-                const el = elements[j];
-                el.classList.remove("prev", "curr", "next")
-
-                if (el === p) el.classList.add("prev")
-                if (el === c) el.classList.add("curr")
-                if (el === n) el.classList.add("next")
-
-            }
-            for (let k = 0; k < buttons.length; k++) {
-                const el = buttons[k];
-                el.classList.remove("prev", "curr", "next")
-
-
-                if (el === prev) el.classList.add("prev")
-                if (el === curr) el.classList.add("curr")
-                if (el === next) el.classList.add("next")
-
-            }
-
-
-
+            updateClasses(elements, buttons, indexRef.value)
         })
         forward.addEventListener("click", () => {
-            currentIndex++
-            if (currentIndex > elements.length - 1) currentIndex = 0
+            indexRef.value++
+            if (indexRef.value > elements.length - 1) indexRef.value = 0
 
-            const { prev, curr, next } = slider(buttons, currentIndex)
-            const { prev: p, curr: c, next: n } = slider(elements, currentIndex)
-
-            for (let j = 0; j < elements.length; j++) {
-                const el = elements[j];
-                el.classList.remove("prev", "curr", "next")
-
-                if (el === p) el.classList.add("prev")
-                if (el === c) el.classList.add("curr")
-                if (el === n) el.classList.add("next")
-
-            }
-            for (let k = 0; k < buttons.length; k++) {
-                const el = buttons[k];
-                el.classList.remove("prev", "curr", "next")
-
-
-                if (el === prev) el.classList.add("prev")
-                if (el === curr) el.classList.add("curr")
-                if (el === next) el.classList.add("next")
-
-            }
-
-
-
+            updateClasses(elements, buttons, indexRef.value)
         })
 
         btn.addEventListener("click", () => {
+            indexRef.value = i
 
-            const { prev, curr, next } = slider(buttons, currentIndex)
-            const { prev: p, curr: c, next: n } = slider(elements, currentIndex)
-
-            for (let j = 0; j < elements.length; j++) {
-                const el = elements[j];
-                el.classList.remove("prev", "curr", "next")
-
-                if (el === p) el.classList.add("prev")
-                if (el === c) el.classList.add("curr")
-                if (el === n) el.classList.add("next")
-
-            }
-            for (let k = 0; k < buttons.length; k++) {
-                const el = buttons[k];
-                el.classList.remove("prev", "curr", "next")
-
-
-                if (el === prev) el.classList.add("prev")
-                if (el === curr) el.classList.add("curr")
-                if (el === next) el.classList.add("next")
-
-            }
-
-
-        }
-        )
+            updateClasses(elements, buttons, indexRef.value)
+        })
 
         btnCotnainer.appendChild(btn)
         c.append(btnCotnainer, container)
     }
 
-    elements[0].classList.add("curr")
-    buttons[0].classList.add("curr")
-    buttons[1].classList.add("next")
-    buttons[buttons.length - 1].classList.add("prev")
+    console.log(indexRef.value, slides[indexRef.value])
 
-
-
-
-
-
-
-
+    // init
+    indexRef.value = 0
+    initialisation(elements, buttons, indexRef.value)
 
     mainContainer.insertBefore(c, mainContainer.firstChild)
+}
+
+function initialisation(elements, buttons, index) {
+    const { prev, curr, next } = slider(buttons, index)
+    const { prev: p, curr: c, next: n } = slider(elements, index)
+
+    prev.classList.add("prev")
+    curr.classList.add("curr")
+    next.classList.add("next")
+
+    p.classList.add("prev")
+    c.classList.add("curr")
+    n.classList.add("next")
+
+}
+
+function updateClasses(elements, buttons, index) {
+
+    const { prev, curr, next } = slider(buttons, index)
+    const { prev: p, curr: c, next: n } = slider(elements, index)
+
+    for (let j = 0; j < elements.length; j++) {
+        const el = elements[j];
+        el.classList.remove("prev", "curr", "next")
+
+        if (el === p) el.classList.add("prev")
+        if (el === c) el.classList.add("curr")
+        if (el === n) el.classList.add("next")
+
+    }
+    for (let k = 0; k < buttons.length; k++) {
+        const el = buttons[k];
+        el.classList.remove("prev", "curr", "next")
+
+
+        if (el === prev) el.classList.add("prev")
+        if (el === curr) el.classList.add("curr")
+        if (el === next) el.classList.add("next")
+
+    }
+
+    console.log(index)
 }
 
 window.addEventListener("DOMContentLoaded", () => {
