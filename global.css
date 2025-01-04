@@ -162,7 +162,7 @@ body {
     --brown-darkest: #423a32;
     --brown-dark: #352e28;
     
-    --brown-transparent: #eae0d375;
+    --brown-transparent: #eae0d3;
     
     --accent-color: #5f5348;
     --button-color: #765a45;
@@ -735,7 +735,7 @@ footer {
         .burger {
             display: flex;
 
-            border: 1px solid;
+            border-left: 1px solid;
 
             padding: 1rem;
 
@@ -759,7 +759,7 @@ footer {
                 left: 0;
                 right: 0;
                 background-color: var(--accent-color);
-                z-index: 1;
+                z-index: 99;
 
                 color: white;
 
