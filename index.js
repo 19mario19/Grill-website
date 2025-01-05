@@ -74,11 +74,11 @@ function createSlider() {
         c.append(btnCotnainer, container)
     }
 
-    console.log(indexRef.value, slides[indexRef.value])
 
     // init
     indexRef.value = 0
     initialisation(elements, buttons, indexRef.value)
+
 
     mainContainer.insertBefore(c, mainContainer.firstChild)
 }
@@ -96,7 +96,6 @@ function initialisation(elements, buttons, index) {
     n.classList.add("next")
 
 }
-
 function updateClasses(elements, buttons, index) {
 
     const { prev, curr, next } = slider(buttons, index)
@@ -122,7 +121,6 @@ function updateClasses(elements, buttons, index) {
 
     }
 
-    console.log(index)
 }
 
 window.addEventListener("DOMContentLoaded", () => {

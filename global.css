@@ -161,9 +161,9 @@ body {
     --brown-darker: #554b40;
     --brown-darkest: #423a32;
     --brown-dark: #352e28;
-    
+
     --brown-transparent: #eae0d3;
-    
+
     --accent-color: #5f5348;
     --button-color: #765a45;
 
@@ -237,6 +237,16 @@ button {
     border: none;
     background-color: transparent;
     cursor: pointer;
+}
+
+button.btn {
+    background-color: var(--button-color);
+    padding: 1rem 2rem;
+    font-size: 20px;
+    line-height: 22px;
+    font-weight: 800;
+
+    color: white;
 }
 
 li {
@@ -639,8 +649,8 @@ footer {
 
             img {
                 margin-top: .2rem;
-                    max-height: 20px;
-                    transform: rotate(90deg);
+                max-height: 20px;
+                transform: rotate(90deg);
             }
         }
 
@@ -705,11 +715,11 @@ footer {
             max-width: 20px;
         }
 
-                 @media screen and (max-width: 600px) {
-                  
-                    flex-direction: column;
-                    gap: 1rem;
-                 }
+        @media screen and (max-width: 600px) {
+
+            flex-direction: column;
+            gap: 1rem;
+        }
     }
 }
 

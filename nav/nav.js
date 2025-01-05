@@ -4,7 +4,7 @@ import { Footer } from "./footer.js"
 function createBanner(root) {
     const container = document.createElement("div")
     container.className = "banner"
-
+container.id = "banner"
     const title = document.createElement("div")
     title.className = "title"
 
