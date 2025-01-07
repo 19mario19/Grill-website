@@ -1,0 +1,8 @@
+.container {
+background-color: var(--brown-lightest);
+    section.top {
+        height: 420px;
+        background-image: url("./assets/book/main.jpg");
+        background-size: cover;
+    }
+}

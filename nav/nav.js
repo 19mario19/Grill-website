@@ -4,14 +4,20 @@ import { Footer } from "./footer.js"
 function createBanner(root) {
     const container = document.createElement("div")
     container.className = "banner"
-container.id = "banner"
+    container.id = "banner"
+
+    const titleA = document.createElement("a")
+    titleA.href = "./index.html"
+
     const title = document.createElement("div")
     title.className = "title"
+
+    titleA.appendChild(title)
 
     const name = document.createElement("div")
     name.className = "name"
     title.appendChild(name)
-    container.appendChild(title)
+    container.appendChild(titleA)
 
     const nameTop = document.createElement("p")
     nameTop.textContent = "GORDON"

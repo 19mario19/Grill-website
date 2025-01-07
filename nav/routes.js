@@ -1,12 +1,12 @@
 const routes = [
     {
         name: "Book now",
-        link: "/book-a-table",
+        link: "./book.html",
     },
 
     {
         name: "Menus",
-        link: "/menus",
+        link: "./menu.html",
     },
     {
         name: "@Bar & Grill - Mayfair",

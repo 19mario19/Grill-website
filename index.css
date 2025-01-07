@@ -5,6 +5,8 @@ body {
 section {
     padding-bottom: 2rem;
 
+    max-width: var(--container-width);
+    margin: 0 auto;
 }
 
 section.one {
@@ -169,16 +171,17 @@ section.one {
 }
 
 section.two {
-    margin: 1rem;
+    max-width: var(--container-width);
+    margin: 1rem auto;
 }
 
-section.two,
-section.four a {
+section.two{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 1rem;
+
 }
 
 section.three {
@@ -186,6 +189,9 @@ section.three {
     grid-template-columns: repeat(4, 1fr);
     margin: 1rem;
     overflow: hidden;
+    max-width: var(--container-width);
+    margin: 0 auto;
+
 
     img {
         height: 100%;
@@ -219,25 +225,5 @@ section.three {
             min-height: 220px;
         }
 
-    }
-}
-
-section.four {
-    background-color: var(--brown-lighter);
-    padding: 1rem;
-
-    a {
-        font-size: 18px;
-        font-weight: 700;
-        color: white;
-
-        &:hover {
-            text-decoration: underline;
-        }
-    }
-
-    img {
-        height: 23px;
-        transform: rotate(-90deg);
     }
 }

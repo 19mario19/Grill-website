@@ -1,5 +1,8 @@
 const Footer = `
 <footer>
+    <section class="back-to-top">
+        <a href="#banner"><span><img src="./assets/icons/arrow-right.png" alt=""></span>Back to Top</a>
+    </section>
     <section class="find-us">
 
         <div class="left">

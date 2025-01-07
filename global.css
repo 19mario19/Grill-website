@@ -488,6 +488,32 @@ footer {
     max-width: var(--container-width);
     margin: 0 auto;
 
+    section.back-to-top {
+        grid-template-columns: 1fr;
+        background-color: var(--brown-lighter);
+        padding: 1rem;
+        flex-direction: column;
+
+
+        a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 700;
+            color: white;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        img {
+            height: 23px;
+            transform: rotate(-90deg);
+        }
+    }
 
     section {
         display: grid;
